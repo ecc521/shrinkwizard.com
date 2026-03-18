@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrink Wizard - Lossless File Compression for macOS & Windows</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Shrink Wizard reclaims gigabytes of disk space using advanced, 100% lossless OS-level compression and image optimization. Why delete it when you can shrink it!">
+    <meta name="keywords" content="file compression, free disk space, lossless compression, macOS, Windows, JPEG XL, CompactOS">
+    <meta name="author" content="Tucker Willenborg">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shrinkwizard.com/">
+    <meta property="og:title" content="Shrink Wizard - Why delete it when you can shrink it!">
+    <meta property="og:description" content="Reclaim gigabytes of disk space using advanced, 100% lossless OS-level compression and image optimization.">
+    <!-- <meta property="og:image" content="https://shrinkwizard.com/assets/og-image.png"> -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shrinkwizard.com/">
+    <meta property="twitter:title" content="Shrink Wizard - Reclaim Your Disk Space">
+    <meta property="twitter:description" content="Why delete it when you can shrink it! Advanced, 100% lossless compression for macOS and Windows.">
+    <!-- <meta property="twitter:image" content="https://shrinkwizard.com/assets/og-image.png"> -->
+
+    <!-- Structured Data (JSON-LD) for Software Application -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Shrink Wizard",
+      "operatingSystem": "macOS, Windows",
+      "applicationCategory": "SystemUtility",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Lossless file compression utility that reclaims disk space using OS-level transparent compression and advanced image optimization."
+    }
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS and JS -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <i data-lucide="zap" class="brand-icon"></i>
+                <span class="brand-text">Shrink Wizard</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How it Works</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#download" class="btn btn-primary compact">Download</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Why delete it when you can <span class="gradient-text">shrink it!</span></h1>
+                    <p class="hero-subtitle">
+                        Reclaim gigabytes of disk space instantly. Shrink Wizard uses advanced, <strong>100% lossless</strong> OS-level compression and state-of-the-art image optimization to make your files smaller without losing a single pixel or byte of data.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="https://github.com/ecc521/Space-Saver/releases/latest/download/ShrinkWizard-macOS.dmg" class="btn btn-primary btn-large download-btn" data-os="macOS">
+                            <i data-lucide="apple"></i> Download for macOS
+                        </a>
+                        <a href="https://github.com/ecc521/Space-Saver/releases/latest/download/ShrinkWizard-Setup.exe" class="btn btn-secondary btn-large download-btn" data-os="windows">
+                            <i data-lucide="monitor"></i> Download for Windows
+                        </a>
+                    </div>
+                    <p class="hero-meta">Free to use up to 5GB of saved space. No accounts required.</p>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="app-mockup">
+                        <!-- Mockup of the app UI built with HTML/CSS for fast loading, 
+                             or can be replaced with an actual exported screenshot -->
+                        <div class="mockup-header">
+                            <i data-lucide="zap" class="text-accent"></i> Shrink Wizard
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-dropzone">
+                                <i data-lucide="hard-drive" size="48" class="text-accent"></i>
+                                <h3>Select Items to Compress</h3>
+                                <p>or drop them anywhere</p>
+                            </div>
+                            <div class="mockup-sidebar">
+                                <div class="mockup-stat">
+                                    <span>Saved: <strong class="text-success">2.4 GB (45%)</strong></span>
+                                </div>
+                                <div class="mockup-queue-item done">
+                                    <div class="row"><span>.../LargeProject</span> <span class="badge success">DONE</span></div>
+                                </div>
+                                <div class="mockup-queue-item active">
+                                    <div class="row"><span>.../RawPhotos</span> <span class="badge warning">50%</span></div>
+                                    <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="section bg-secondary">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Magic under the hood. <br/>Simple on the outside.</h2>
+                    <p class="section-subtitle">No complex settings required. Just drop your files and watch your free space grow.</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-icon-wrapper"><i data-lucide="file-input" size="32"></i></div>
+                        <h3>Drop Your Files</h3>
+                        <p>Drag and drop folders, documents, photos, or entire game directories into the app.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-icon-wrapper"><i data-lucide="cpu" size="32"></i></div>
+                        <h3>Smart Analysis</h3>
+                        <p>The Wizard analyzes each file to determine the optimal, 100% lossless compression strategy.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-icon-wrapper"><i data-lucide="save" size="32"></i></div>
+                        <h3>Reclaim Space</h3>
+                        <p>Files are shrunk in place. They look and act exactly the same, but take up significantly less space.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Advanced, 100% Lossless Technology</h2>
+                    <p class="section-subtitle">We never degrade your data. Every byte is perfectly preserved.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="layers"></i></div>
+                        <h3 class="feature-title">Transparent OS Compression</h3>
+                        <p class="feature-desc">Utilizes built-in Windows (LZX, XPRESS) and macOS (LZFSE, ZLIB, LZVN) filesystem compression. Files remain fully accessible to all apps without needing to be extracted.</p>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="image"></i></div>
+                        <h3 class="feature-title">Pixel-Perfect Image Optimization</h3>
+                        <p class="feature-desc">Optimizes JPEGs and PNGs by reorganizing their internal data structure without altering a single pixel or changing the file format.</p>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="feature-card pro-badge-wrapper">
+                        <span class="pro-badge">PRO</span>
+                        <div class="feature-icon"><i data-lucide="archive"></i></div>
+                        <h3 class="feature-title">JPEG XL Transcoding</h3>
+                        <p class="feature-desc">Convert standard JPEGs to the next-generation JPEG XL format, achieving 20-30% smaller file sizes with strict mathematical losslessness.</p>
+                    </div>
+                    
+                    <!-- Feature 4 -->
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="hard-drive"></i></div>
+                        <h3 class="feature-title">Windows CompactOS</h3>
+                        <p class="feature-desc">Instantly reclaim 1GB to 3GB of disk space by compressing Windows system files safely and reversibly.</p>
+                    </div>
+                    
+                    <!-- Feature 5 -->
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="file-json"></i></div>
+                        <h3 class="feature-title">Metadata Preservation</h3>
+                        <p class="feature-desc">By default, all EXIF data, ICC color profiles, and timestamps are carefully preserved during optimization.</p>
+                    </div>
+                    
+                    <!-- Feature 6 -->
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="history"></i></div>
+                        <h3 class="feature-title">100% Reversible</h3>
+                        <p class="feature-desc">Want to undo it? Drop previously compressed items into the Decompress tab to return them to their exact original state.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="section bg-secondary">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Simple, Transparent Pricing</h2>
+                    <p class="section-subtitle">Experience the magic for free. Upgrade when you need more power.</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <!-- Free Tier -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Free</h3>
+                            <div class="price"><span>$0</span></div>
+                            <p>Perfect for trying it out.</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i data-lucide="check" class="text-success"></i> All Compression Features Enabled</li>
+                            <li><i data-lucide="check" class="text-success"></i> Up to <strong>5GB total space saved</strong></li>
+                            <li><i data-lucide="check" class="text-success"></i> Free Decompression Forever</li>
+                            <li><i data-lucide="check" class="text-success"></i> Auto-Updates</li>
+                            <li class="disabled"><i data-lucide="x"></i> Unlimited Space Savings</li>
+                        </ul>
+                        <!-- Download button redirects to the hero download section -->
+                        <a href="#download" class="btn btn-secondary btn-full">Download Now</a>
+                    </div>
+                    
+                    <!-- Pro Tier -->
+                    <div class="pricing-card highlight">
+                        <div class="popular-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3>Wizard Pro</h3>
+                            <div class="price"><span>$19</span> <span class="period">One-time purchase</span></div>
+                            <p>Unlock untethered performance.</p>
+                        </div>
+                        <ul class="pricing-features">
+                            <li><i data-lucide="check" class="text-success"></i> <strong>Everything in Free</strong></li>
+                            <li><i data-lucide="check" class="text-success"></i> <strong>Unlimited Space Savings</strong></li>
+                            <li><i data-lucide="check" class="text-success"></i> Next-Gen JPEG XL Support</li>
+                            <li><i data-lucide="check" class="text-success"></i> Unthrottled Batch Processing</li>
+                            <li><i data-lucide="check" class="text-success"></i> Priority Support</li>
+                        </ul>
+                        <!-- License purchase link placeholder -->
+                        <a href="#" class="btn btn-primary btn-full" onclick="alert('Licensing integration coming soon!'); return false;">Buy License Key</a>
+                        <p class="pricing-meta">No subscription. Secure payment via LemonSqueezy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section">
+            <div class="container container-sm">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Is Shrink Wizard really 100% lossless?</span>
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. We strictly adhere to lossless compression techniques. Transparent OS compression operates at the filesystem level, meaning the files themselves are mathematically identical when read by any application. Our image optimization tools utilize lossless re-encoding, preserving every single pixel exactly as it was.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Will compression slow down my computer?</span>
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Surprisingly, it often makes it <em>faster</em>. Because the compressed files are smaller, your hard drive spends less time reading data. Modern CPUs decompress this data in RAM almost instantly, resulting in an overall faster read operation for most files.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What happens when I hit the 5GB Free limit?</span>
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>The app will continue to work, but at a "throttled" speed. Batch processing will be slowed down significantly with processing delays, and you will see prompts to upgrade to Pro. You can always decompress files for free, regardless of limits.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can I run Shrink Wizard on Shrink Wizard?</span>
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>YES! You can absolutely drop the Shrink Wizard application into itself to compress it. It's a fun way to test the magic immediately.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section id="download" class="section text-center cta-section">
+            <div class="container">
+                <h2 class="section-title">Ready to reclaim your hard drive?</h2>
+                <p class="section-subtitle">Download Shrink Wizard today and see how much space you can save.</p>
+                <div class="hero-actions justify-center">
+                    <a href="https://github.com/ecc521/Space-Saver/releases/latest/download/ShrinkWizard-macOS.dmg" class="btn btn-primary btn-large">
+                        <i data-lucide="apple"></i> Mac Download
+                    </a>
+                    <a href="https://github.com/ecc521/Space-Saver/releases/latest/download/ShrinkWizard-Setup.exe" class="btn btn-secondary btn-large">
+                        <i data-lucide="monitor"></i> Windows Download
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="brand">
+                    <i data-lucide="zap" class="brand-icon"></i>
+                    <span class="brand-text">Shrink Wizard</span>
+                </div>
+                <p class="footer-tagline">Why delete it when you can shrink it!</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#download">Download</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="#faq">FAQ</a>
+                    <a href="https://github.com/ecc521/Space-Saver" target="_blank" rel="noopener">GitHub Repository</a>
+                    <a href="https://github.com/ecc521/Space-Saver/issues" target="_blank" rel="noopener">Report an Issue</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="#" onclick="alert('Coming soon'); return false;">Terms of Service</a>
+                    <a href="#" onclick="alert('Coming soon'); return false;">Privacy Policy</a>
+                    <a href="#" onclick="alert('Coming soon'); return false;">EULA</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Tucker Willenborg. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
