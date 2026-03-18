@@ -60,40 +60,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // OS Detection for Default Download Button Focus
-    const highlightOSButton = () => {
-        const userAgent = window.navigator.userAgent;
-        let os = "Unknown OS";
+    // Dynamic OS & Architecture Detection for Download Buttons
+    const updateDownloadButtons = async () => {
+        const primaryBtn1 = document.getElementById('primary-download-btn');
+        const primaryText1 = document.getElementById('primary-download-text');
+        const primaryBtn2 = document.getElementById('secondary-download-btn');
+        const primaryText2 = document.getElementById('secondary-download-text');
         
-        if (userAgent.indexOf("Win") !== -1) os = "Windows";
-        if (userAgent.indexOf("Mac") !== -1) os = "MacOS";
+        if (!primaryBtn1 || !primaryText1 || !primaryBtn2 || !primaryText2) return;
+
+        let os = "Unknown";
+        let bitness = "64";
+        let isAppleSilicon = false;
         
-        const macBtns = document.querySelectorAll('[data-os="macOS"]');
-        const winBtns = document.querySelectorAll('[data-os="windows"]');
+        const userAgent = window.navigator.userAgent.toLowerCase();
         
-        if (os === "Windows") {
-            winBtns.forEach(btn => {
-                btn.classList.remove('btn-secondary');
-                btn.classList.add('btn-primary');
-            });
-            macBtns.forEach(btn => {
-                btn.classList.remove('btn-primary');
-                btn.classList.add('btn-secondary');
-            });
-            
-            // Re-order on mobile if needed (Windows first)
-            const actionsContainers = document.querySelectorAll('.hero-actions');
-            actionsContainers.forEach(container => {
-                if (window.innerWidth <= 768) {
-                   const winBtn = container.querySelector('[data-os="windows"]');
-                   if (winBtn) container.insertBefore(winBtn, container.firstChild);
+        // Basic OS detection
+        if (userAgent.indexOf("win") !== -1) os = "Windows";
+        else if (userAgent.indexOf("mac") !== -1) os = "macOS";
+        else if (userAgent.indexOf("linux") !== -1 || userAgent.indexOf("x11") !== -1) os = "Linux";
+        
+        // Try to detect architecture using modern API if available
+        if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
+            try {
+                const ua = await navigator.userAgentData.getHighEntropyValues(["architecture", "bitness"]);
+                if (os === "macOS" && ua.architecture === "arm") {
+                    isAppleSilicon = true;
                 }
-            });
-        } 
-        // Mac is default styling in HTML already
+                if (ua.architecture === "x86") {
+                    bitness = ua.bitness || "64";
+                }
+            } catch (e) {
+                console.log("Could not get high entropy user agent data:", e);
+            }
+        } else {
+            // Fallback heuristics
+            if (os === "macOS" && navigator.platform === 'MacIntel') {
+                // Technically Rosetta could be MacIntel, we rely on the heuristic or just say 'Mac'
+                // Some canvas/webgl fingerprinting can detect M1, but usually 'Mac' is fine as fallback
+            }
+        }
+        
+        // Build the download text and URL
+        let downloadText = "Download";
+        let downloadUrl = "https://github.com/ecc521/Space-Saver/releases/latest";
+        let iconHtml = '<i data-lucide="download"></i>';
+
+        if (os === "Windows") {
+            downloadText = "Download for Windows";
+            downloadUrl = "https://github.com/ecc521/Space-Saver/releases/latest/download/ShrinkWizard-Setup.exe";
+            iconHtml = '<i data-lucide="monitor"></i>';
+        } else if (os === "macOS") {
+            downloadText = isAppleSilicon ? "Download for Apple Silicon" : "Download for Intel Mac";
+            downloadUrl = "https://github.com/ecc521/Space-Saver/releases/latest/download/ShrinkWizard-macOS.dmg"; // Assuming universal DMG for now, can be split later if needed
+            iconHtml = '<i data-lucide="apple"></i>';
+            
+            // If the user's browser doesn't support the new API, we just say Mac
+            if (!navigator.userAgentData) {
+                downloadText = "Download for Mac";
+            }
+        } else if (os === "Linux") {
+            downloadText = "Download for Linux";
+            downloadUrl = "https://github.com/ecc521/Space-Saver/releases/latest/download/ShrinkWizard-Linux.deb";
+            iconHtml = '<i data-lucide="monitor"></i>';
+        }
+
+        // Apply
+        primaryBtn1.href = downloadUrl;
+        primaryBtn1.innerHTML = `${iconHtml} <span>${downloadText}</span>`;
+        
+        primaryBtn2.href = downloadUrl;
+        primaryBtn2.innerHTML = `${iconHtml} <span>${downloadText}</span>`;
+        
+        lucide.createIcons();
     };
     
-    highlightOSButton();
+    updateDownloadButtons();
 
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
